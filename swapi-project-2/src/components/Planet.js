@@ -10,7 +10,7 @@ const Planet = () => {
     fetch(`https://swapi.dev/api/planets/1/`)
     .then(re => re.json())
     .then((re) => {
-      setPlanet(re.data);
+      setPlanet(re);
 
   })
 },[]);
