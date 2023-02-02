@@ -1,0 +1,75 @@
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  --dark1: black;
+  --light1: white;
+  --dark2: darkblue;
+  --light2: lightblue;
+  background-color: var(--light1);
+  color: var(--dark1);
+}
+
+.planets h2{
+  margin-bottom: 20px
+}
+
+.planets h1{
+  margin: 50px;
+  /* display:table;
+  vertical-align:middle; */
+}
+
+.residents {
+  display:table;
+  vertical-align:middle;
+  margin: 50px;
+  /* background-color: aqua; */
+}
+
+.residents ul
+{
+  list-style-type: none;
+  padding: 0;
+}
+
+.residents li
+ {
+  display:table;
+  vertical-align:middle;
+  font-size: 1.1em;
+  background-color: lightblue;
+  /* color: "red"; */
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--dark2);
+}
+
+.generalInfo {
+  display: flex;
+  justify-content: space-around;
+  border: 20px;
+}
+
+.generalInfo p {
+  padding: 20px;
+  color: var(--dark2);
+  background-color: var(--light2);
+}
+
+.generalInfo span {
+  font-weight: bold;
+  font-size: 1.1em;
+}

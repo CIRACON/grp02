@@ -6,7 +6,7 @@ import Films from './components/Films'
 function App() {
   return (
     <div className="App">
-      <Films/>
+      <Planet/>
     </div>
   );
 }
