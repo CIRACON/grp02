@@ -1,11 +1,8 @@
 import React from 'react';
 
 
-function Films(){
+export const Films=()=>{
     return (
     <h1>Films</h1>
     )
-};
-
-
-export default Films;
+}
