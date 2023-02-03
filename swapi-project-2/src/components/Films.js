@@ -23,7 +23,7 @@ useEffect(() => {
   return (
     <div className="filmsList">
       {films.map(film => ( 
-      <Link className="filmInfo" to={film.id.toString()} key={film.id}>
+      <Link className="filmsInfo" to={film.id.toString()} key={film.id}>
         <div>
           {film.title}
         </div>
