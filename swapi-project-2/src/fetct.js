@@ -19,6 +19,29 @@ export async function fetchAllPeople() {
  }
 
   return people;
+};
+
+export async function fetchAllFilms() {
+
+  let films = [];
+
+  let url = `https://swapi.dev/api/films/`;
+
+  while (url) {
+      try {
+          const fetchFilms = await fetch(url)
+              .then(res => res.json())
+              .then(res => { url = res.next; return res })
+              .then(res => res.results)
+              .then(res => res.map(p => ({ ...p, id: + getIdFrom('films', p.url) })))
+
+          films.push(...fetchFilms)
+      } catch (ex) {
+          console.error(`Error reading films.`, ex.message);
+      }
+ }
+
+  return films;
 }
 
 export function getIdFrom(entityName, url) {
