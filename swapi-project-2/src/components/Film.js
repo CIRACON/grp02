@@ -11,8 +11,8 @@ export default function Film() {
   const film = useLoaderData();
 
   const getIdFromUrl = (entityName, url) => {
-    const re = new RegExp(`.*${entityName}\/(\\d+).*`);
-    const matches = url.match(re)
+    const res= new RegExp(`.*${entityName}\/(\\d+).*`);
+    const matches = url.match(res)
     if (!matches) throw `Bad URL. Not a ${entityName} URL.`
     return matches[1]
   }
@@ -28,11 +28,11 @@ export default function Film() {
         <p>Opening Crawl: <span>{film.opening_crawl}</span></p>
         <p>Director: <span>{film.director}</span></p>
       </section>
-      <section className="planets">
+      {/* <section className="planets">
       <Link className="residentLink" to={`/planets/${getPlanetIdFromUrl(film.planets)}`}
             key={getPlanetIdFromUrl(film.planets)}>{getPlanetIdFromUrl(film.planets)}
           </Link>
-      </section>
+      </section> */}
       <section className="people">
         <h2>Characters</h2>
         <ul>
@@ -51,7 +51,7 @@ export default function Film() {
 
 
   )
-}
+};
 
 
 export const filmLoader = async ({params}) => {
