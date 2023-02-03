@@ -1,8 +1,10 @@
 import React from 'react';
 
 
-export const Films=()=>{
+const Films=()=>{
     return (
     <h1>Films</h1>
     )
 }
+
+export default Films
