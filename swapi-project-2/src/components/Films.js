@@ -1,19 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import { createSearchParams, useNavigate, Link, useParams,useLoaderData} from 'react-router-dom';
+
+export default function Films (){
 
 
-const Films =()=>{
-
-    let [film, setFilm] = useState({})
-
-  useEffect(()=>{
-    fetch(`https://swapi.dev/api/films/1`)
-    .then(res => res.json())
-    .then((res) => {
-      setFilm(res);
-
-  })
-  
-},[]);
+const {id} = useParams();
+const film = useLoaderData();
 
 const getIdFromUrl = (entityName, url) => {
     const re = new RegExp(`.*${entityName}\/(\\d+).*`);
@@ -21,6 +13,7 @@ const getIdFromUrl = (entityName, url) => {
     if (!matches) throw `Bad URL. Not a ${entityName} URL.`
     return matches[1]
   }
+
   const getFilmIdFromUrl = url => getIdFromUrl("films", url)
   const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
   const getPersonIdFromUrl = url => getIdFromUrl("people", url)
@@ -60,4 +53,10 @@ const getIdFromUrl = (entityName, url) => {
   )
 }
 
-export default Films;
+
+export const filmLoader = async ({params}) => {
+    const {id} = params
+    const res = await fetch(`https://swapi.dev/api/films/${id}/`)
+    console.log(res.json)
+    return res.json()
+  }
