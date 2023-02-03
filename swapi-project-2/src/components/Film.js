@@ -28,11 +28,18 @@ export default function Film() {
         <p>Opening Crawl: <span>{film.opening_crawl}</span></p>
         <p>Director: <span>{film.director}</span></p>
       </section>
-      {/* <section className="planets">
-      <Link className="residentLink" to={`/planets/${getPlanetIdFromUrl(film.planets)}`}
-            key={getPlanetIdFromUrl(film.planets)}>{getPlanetIdFromUrl(film.planets)}
-          </Link>
-      </section> */}
+      <section className="planets">
+        <h2>Planets</h2>
+        <ul>
+      {film?.planets?.map(planet => {
+            return (
+            <Link className="residentLink" to={`/planets/${getPlanetIdFromUrl(planet)}`}
+              key={getPlanetIdFromUrl(planet)}>{getPlanetIdFromUrl(planet)}
+            </Link>)
+          })
+          }
+          </ul>
+      </section>
       <section className="people">
         <h2>Characters</h2>
         <ul>
