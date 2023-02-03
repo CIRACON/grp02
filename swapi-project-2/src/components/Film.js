@@ -29,23 +29,21 @@ export default function Film() {
         <p>Director: <span>{film.director}</span></p>
       </section>
       <section className="planets">
-        <ul>
-          <h2>Planets</h2>
-          {film?.planets?.map((planet, index) => {
-            return (<li key={index}>{getPlanetIdFromUrl(planet)}</li>)
-          })
-          }
-        </ul>
+      <Link className="residentLink" to={`/planets/${getPlanetIdFromUrl(film.planets)}`}
+            key={getPlanetIdFromUrl(film.planets)}>{getPlanetIdFromUrl(film.planets)}
+          </Link>
       </section>
       <section className="people">
+        <h2>Characters</h2>
         <ul>
-          <h2>Characters</h2>
-          {film?.characters?.map((character, index) => {
-            return (<li key={index}>{getPersonIdFromUrl(character)}</li>)
+      {film?.characters?.map(character => {
+            return (
+            <Link className="residentLink" to={`/people/${getPersonIdFromUrl(character)}`}
+              key={getPersonIdFromUrl(character)}>{getPersonIdFromUrl(character)}
+            </Link>)
           })
-
           }
-        </ul>
+          </ul>
       </section>
 
     </div>
