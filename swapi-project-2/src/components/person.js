@@ -12,31 +12,50 @@ export default function Person() {
   const {id} = useParams();
   const person = useLoaderData();
 
-  const getIdFromUrl = (entityName, url) => {
-    const re = new RegExp(`.*${entityName}\/(\\d+).*`);
-    const matches = url.match(re)
-    if (!matches) throw `Bad URL. Not a ${entityName} URL.`
-    return matches[1]
-  }
-  const getFilmIdFromUrl = url => getIdFromUrl("films", url)
-  const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
-  const getPersonIdFromUrl = url => getIdFromUrl("people", url)
+  // const getIdFromUrl = (entityName, url) => {
+  //   const re = new RegExp(`.*${entityName}\/(\\d+).*`);
+  //   const matches = url.match(re)
+  //   if (!matches) throw `Bad URL. Not a ${entityName} URL.`
+  //   return matches[1]
+  // }
+  // const getFilmIdFromUrl = url => getIdFromUrl("films", url)
+  // const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
+  // const getPersonIdFromUrl = url => getIdFromUrl("people", url)
   
     return (
       <div>
-        <h1>{person.name}</h1>
+        <h1>{person.fields.name}</h1>
         <section className="generalInfo">
-        <p>Height: <span>{person.height}</span></p>
-        <p>Mass: <span>{person.mass}</span></p>
-        <p>Born: <span>{person.birth_year}</span></p>
+        <p>Height: <span>{person.fields.height}</span></p>
+        <p>Mass: <span>{person.fields.mass}</span></p>
+        <p>Born: <span>{person.fields.birth_year}</span></p>
       </section>
       <section className="residents">
         <h2>Homeworld</h2>
-          <Link className="residentLink" to={`/planets/${getPlanetIdFromUrl(person.homeworld)}`}
-            key={getPlanetIdFromUrl(person.homeworld)}>{getPlanetIdFromUrl(person.homeworld)}
+          <Link className="residentLink" to={`/planets/${person.fields.homeworld}`}
+            key={person.fields.homeworld}>{person.fields.homeworld}
           </Link>
 
       </section>
+        <section className="residents">
+        <ul>
+            <h2>Films</h2>
+            {person?.fields?.films?.map((film, index) => {
+              return (
+              <li
+                // onClick = {() => navigateToFilm(getFilmIdFromUrl(film))}
+                key={index}>{film}
+              </li>)
+            })
+
+            }
+          </ul>
+      </section>
+      
+      
+      
+      
+      
       {/* <section className="residents">
         <ul>
           <h2>Residents</h2>
@@ -49,7 +68,13 @@ export default function Person() {
           }
         </ul>
       </section> */}
-      <section className="residents">
+      
+      
+      
+      
+      
+      
+      {/* <section className="residents">
         <ul>
             <h2>Films</h2>
             {person?.films?.map((film, index) => {
@@ -62,7 +87,8 @@ export default function Person() {
 
             }
           </ul>
-      </section>
+      </section> */}
+      
       </div>
     
     )
@@ -70,6 +96,6 @@ export default function Person() {
 
 export const personLoader = async ({params}) => {
   const {id} = params
-  const res = await fetch(`https://swapi.dev/api/people/${id}/`)
+  const res = await fetch(`http://localhost:4000/people/${id}/`)
   return res.json()
 }

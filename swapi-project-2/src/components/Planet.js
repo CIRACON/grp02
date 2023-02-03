@@ -10,26 +10,26 @@ export default function Planet(){
   const {id} = useParams();
   const planet = useLoaderData();
 
-  const getIdFromUrl = (entityName, url) => {
-    const re = new RegExp(`.*${entityName}\/(\\d+).*`);
-    const matches = url.match(re)
-    if (!matches) throw `Bad URL. Not a ${entityName} URL.`
-    return matches[1]
-  }
-  const getFilmIdFromUrl = url => getIdFromUrl("films", url)
-  const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
-  const getPersonIdFromUrl = url => getIdFromUrl("people", url)
+  // const getIdFromUrl = (entityName, url) => {
+  //   const re = new RegExp(`.*${entityName}\/(\\d+).*`);
+  //   const matches = url.match(re)
+  //   if (!matches) throw `Bad URL. Not a ${entityName} URL.`
+  //   return matches[1]
+  // }
+  // const getFilmIdFromUrl = url => getIdFromUrl("films", url)
+  // const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
+  // const getPersonIdFromUrl = url => getIdFromUrl("people", url)
 
 
   return (
     <div className="planets">
-      <h1>{planet.name}</h1>
+      <h1>{planet.fields.name}</h1>
       <section className="generalInfo">
-        <p>Population: <span>{planet.population}</span></p>
-        <p>Climate: <span>{planet.climate}</span></p>
-        <p>Terrain: <span>{planet.terrain}</span></p>
+        <p>Population: <span>{planet.fields.population}</span></p>
+        <p>Climate: <span>{planet.fields.climate}</span></p>
+        <p>Terrain: <span>{planet.fields.terrain}</span></p>
       </section>
-      <section className="residents">
+      {/* <section className="residents">
         <ul>
           <h2>Residents</h2>
           {planet?.residents?.map(resident => {
@@ -54,7 +54,7 @@ export default function Planet(){
 
           }
         </ul>
-      </section>
+      </section> */}
 
     </div>
 
@@ -64,7 +64,7 @@ export default function Planet(){
 }
 export const planetLoader = async ({params}) => {
   const {id} = params
-  const res = await fetch(`https://swapi.dev/api/planets/${id}/`)
+  const res = await fetch(`http://localhost:4000/planets/${id}/`)
   console.log(res.json)
   return res.json()
 }

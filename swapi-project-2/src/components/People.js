@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams,createSearchParams,useNavigate,Link } from "react-router-dom";
+import { useSearchParams,createSearchParams,useNavigate,Link,useLoaderData } from "react-router-dom";
 import { fetchAllPeople } from "../fetct";
 import "./people.css"
 
 
-const People = () => {  
-const [person, setPerson] = useState({})
-const [people, setPeople] = useState([])
+export default function People() {  
+// const [person, setPerson] = useState({})
+// const [people, setPeople] = useState([])
 // const [searchparams] = useSearchParams();
+const people = useLoaderData();
+console.log(people.results)
 
 
 
 
-useEffect(() => { 
-    fetchAllPeople().then(res => {
-      setPeople(res)
-      console.log(res)
-    })
-    
-},[]);
+
 
 // const navigate = useNavigate();
 
@@ -33,9 +29,9 @@ useEffect(() => {
   return (
     <div className="peopleList">
       {people.map(person => ( 
-      <Link className="peopleInfo" to={person.id.toString()} key={person.id}>
+      <Link className="peopleInfo" to={person.pk.toString()} key={person.pk}>
         <div>
-          {person.name}
+        {person.fields.name}
         </div>
       </Link>
       )
@@ -45,4 +41,10 @@ useEffect(() => {
   )
 
 }
-export default People
+
+export const peopleLoader = async () => {
+
+  const res = await fetch(`http://localhost:4000/people`)
+  // console.log(res.json)
+  return res.json()
+}
