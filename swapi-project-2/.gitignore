@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/swapiServer/node_modules
 /.pnp
 .pnp.js
 

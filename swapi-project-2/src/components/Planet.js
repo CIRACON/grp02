@@ -40,7 +40,7 @@ useEffect(() =>{
       })
   
     })
-    // .then(() => setResidents(temp))
+    .then(() => setResidents(temp))
     // .then(() => {
     //   fetch(`http://localhost:4000/films/`)
     // .then((res) => res.json())

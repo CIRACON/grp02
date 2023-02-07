@@ -1,7 +1,7 @@
 import './App.css';
 import Planet, { planetLoader } from './Planet'
 import Films, { filmsLoader } from './Films'
-import Film  from './Film'
+import Film, {filmLoader}  from './Film'
 
 import Person, { personLoader } from './person'
 import People, { peopleLoader } from './People'
@@ -24,9 +24,9 @@ const router = createBrowserRouter(
 
   <Route path = "films" element={<Films/>}/>
       <Route 
-        path = "film/:id" 
+        path = "films/:id" 
         element={<Film/>}
-        // loader={filmLoader}
+        loader={filmLoader}
       
       />
 
