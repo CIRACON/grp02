@@ -1,19 +1,19 @@
-// import logo from './logo.svg';
 import './App.css';
 import Planet, { planetLoader } from './Planet'
-import Films from './Films'
-import Film, { filmLoader } from './Film'
+import Films, { filmsLoader } from './Films'
+import Film  from './Film'
+
 import Person, { personLoader } from './person'
 import People, { peopleLoader } from './People'
-import { Routes, Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
+import { Routes, Route, createBrowserRouter, createRoutesFromElements, RouterProvider, BrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route 
         path = "people" 
-        loader={peopleLoader}
         element={<People/>}
+        loader={peopleLoader}
       />
       <Route 
         path = "people/:id" 
@@ -24,9 +24,9 @@ const router = createBrowserRouter(
 
   <Route path = "films" element={<Films/>}/>
       <Route 
-        path = "films/:id" 
+        path = "film/:id" 
         element={<Film/>}
-        loader={filmLoader}
+        // loader={filmLoader}
       
       />
 
@@ -46,6 +46,36 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router}/>
+      {/* <BrowserRouter>
+        <Routes>
+          <Route path = "people" element={<People/>}/>
+          <Route 
+            path = "people/:id" 
+            element={<Person/>}
+            // loader={personLoader}
+          
+          />
+
+          <Route path = "films" element={<Films/>}/>
+          <Route 
+            path = "film/:id" 
+            element={<Film/>}
+            // loader={filmLoader}
+          
+          />
+
+          <Route 
+            path="planets/:id"
+            element={<Planet/>}
+            // loader={planetLoader}      
+          />
+
+        </Routes>
+      
+      
+      
+      
+      </BrowserRouter> */}
     </div>
   );
 }
