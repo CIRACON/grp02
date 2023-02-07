@@ -20,7 +20,7 @@ export default function Film() {
   // const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
   // const getPersonIdFromUrl = url => getIdFromUrl("people", url)
 
-
+  
 
 
   

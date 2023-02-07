@@ -12,6 +12,7 @@ export default function Planet(){
 
   const planet = useLoaderData();
   const [people, setPeople] = useState([])
+  const [film, setFilm] = useState([])
   let temp = []
   // const [planet, setPlanet] = useState({})
 
@@ -41,22 +42,23 @@ useEffect(() =>{
   
     })
     .then(() => setResidents(temp))
-    // .then(() => {
-    //   fetch(`http://localhost:4000/films/`)
-    // .then((res) => res.json())
-    // .then((people) => {console.log(people); return people})
-    // .then((res) => {
-    //   res.forEach((person) =>{
-    //     if (person.fields?.homeworld === planet.pk)
-    //       temp.push(person.pk)
+    .then(() => {
+      fetch(`http://localhost:4000/films/`)
+    .then((res) => res.json())
+    .then((films) => {console.log(films); return films})
+    .then((res) => {
+      res.forEach((film) =>{
+        film.fields?.planets.map(world);
+        if ( world === planet.pk)
+          temp.push(film.pk)
         
-    //   })
+      })
   
-    // })
-    // .then(() => setResidents(temp))
+    })
+    .then(() => setFilm(temp))
       
       
-    // })
+    })
 
 }, [])
 
