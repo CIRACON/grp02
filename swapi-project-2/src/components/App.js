@@ -2,6 +2,7 @@ import './App.css';
 import Planet, { planetLoader } from './Planet'
 import Films, { filmsLoader } from './Films'
 import Film, {filmLoader}  from './Film'
+import Home from './Home';
 
 import Person, { personLoader } from './person'
 import People, { peopleLoader } from './People'
@@ -10,6 +11,11 @@ import { Routes, Route, createBrowserRouter, createRoutesFromElements, RouterPro
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route
+        path="/"
+        element={<Home/>}
+
+      />
       <Route 
         path = "people" 
         element={<People/>}
