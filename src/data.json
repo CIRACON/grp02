@@ -1,7 +1,8 @@
-{ "employees": [
+[
   {
-      "id": "1",
+      "_id": 1,
       "mid":null,
+      "isHR": false,
       "name": "John",
       "role": "Senior React Developer",
       "salary": 50000,
@@ -9,9 +10,10 @@
       "phone": "202-918-2132"
     },
     {
-      "id": "2",
-      "mid": "1",
-      "name": "Joe",
+      "_id": 2,
+      "mid": 1,
+      "isHR": false,
+      "name": "Mario",
       "role": "Plumber",
       "salary": 40000,
       "location": "Bowser's Castle",
@@ -19,8 +21,9 @@
 
     },
     {
-      "id": "3",
-      "mid": "1",
+      "_id": 3,
+      "mid": 1,
+      "isHR": false,
       "name": "Brock",
       "role": "Gym Leader",
       "salary": 75000,
@@ -28,8 +31,9 @@
       "phone": "520-208-7035"
     },
     {
-      "id": "4",
+      "_id": 4,
       "mid": null,
+      "isHR": false,
       "name": "Bob",
       "role": "Website Manager",
       "salary": 40000,
@@ -37,23 +41,44 @@
       "phone": "415-706-5685"
     },
     {
-      "id": "5",
-      "mid": "4",
+      "_id": 5,
+      "mid": 4,
+      "isHR": false,
       "name": "Jane",
-
       "role": "Tutorial Maker",
       "salary": 35000,
       "location": "Manchester, UK",
       "phone": "505-254-7065"
     },
     {
-      "id": "6",
-      "mid": "4",
+      "_id": 6,
+      "mid": 4,
+      "isHR": false,
       "name": "Mary",
       "role": "Vue Developer",
       "salary": 50000,
       "location": "Berlin, Germany",
       "phone": "505-609-9210"
+    },
+    {
+      "_id": 7,
+      "mid": 8,
+      "isHR": true,
+      "name": "Tom",
+      "role": "HR Coordinator",
+      "salary": 50000,
+      "location": "Berlin, Germany",
+      "phone": "505-609-9210"
+    },
+    {
+      "_id": 8,
+      "mid": null,
+      "isHR": true,
+      "name": "Stacy",
+      "role": "HR Manager",
+      "salary": 80000,
+      "location": "Berlin, Germany",
+      "phone": "505-607-9210"
     }
+
   ]
-}

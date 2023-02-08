@@ -3,10 +3,11 @@ import { useLoaderData, useParams } from "react-router-dom";
 import '../data.json'
 
 export default function EmployeeDetails() {
-  const {eid} = useParams()
+  const {id} = useParams()
   const employee = useLoaderData()
 
-  const storedId = "1"
+  const storedId = 2
+  const isHR = false
 
   // const [employee,setEmployee] = useState([])
   // const employee = {
@@ -33,6 +34,8 @@ export default function EmployeeDetails() {
 
   return (
     <div>
+      {console.log(employee._id,employee.isHR)}
+    
       <div>
         <h1>{employee.name}</h1>
       </div>
@@ -41,8 +44,8 @@ export default function EmployeeDetails() {
           <li>Location: {employee.location}</li>
           <li>Phone Number: {employee.phone}</li>
           <li>Job Role: {employee.role}</li>
-          {storedId === employee.id || storedId === employee.mid 
-          
+          {(storedId === employee._id || storedId === employee.mid
+          || isHR === true)
           && <li>Salary: {employee.salary}</li>}
           
         </ul>
@@ -54,8 +57,8 @@ export default function EmployeeDetails() {
 }
 
 export const employeeLoader = async ({params}) => {
-  const {eid} = params
-  const res = await fetch(`http://localhost:5000/employees/${eid}`)
+  const {id} = params
+  const res = await fetch(`http://localhost:4000/employees/${id}`)
   return res.json()
 
 }

@@ -4,7 +4,7 @@ var url = "mongodb://localhost:27017";
 
 const client = new MongoClient(url);
 // Database and collection variables
-const dbName = "employeeList";
+const dbName = "employeeDirectory";
 
 const collectionNames = ["employees"]
 
@@ -20,13 +20,14 @@ module.exports.call = async function call(operation, parameters, callback) {
   // set the collection to use
   if (operation.toLowerCase() === "getallemployees"){
     const collection = db.collection(collectionNames[0]);
-    const employees = await collection.find({employees}).toArray();
+    const employees = await collection.find().toArray();
     callback({ employees:employees });
 
   }
   if (operation.toLowerCase() === "getemployee"){ 
     const collection = db.collection(collectionNames[0]);
-    const employee = await collection.findOne({employees:{ id: parseInt(parameters.id)}});
+    console.log(parameters)
+    const employee = await collection.findOne({_id: parseInt(parameters.id)});
     callback({employee:employee});
 
   console.log( 'call complete: ' + operation );

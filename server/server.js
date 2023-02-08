@@ -21,7 +21,7 @@ app.get("/employees", async (req, res) => {
   });
 
 app.get("/employees/:id", async(req, res) => {
-    await dao.call('getEmployee', { id: req.params.id}, (result) => {
+    await dao.call('getEmployee', {id: +req.params.id}, (result) => {
         if (result.employee !== undefined) {
             res.send(result.employee);
         } else {
