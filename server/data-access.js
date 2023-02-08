@@ -20,13 +20,13 @@ module.exports.call = async function call(operation, parameters, callback) {
   // set the collection to use
   if (operation.toLowerCase() === "getallemployees"){
     const collection = db.collection(collectionNames[0]);
-    const employees = await collection.find({}).toArray();
+    const employees = await collection.find({employees}).toArray();
     callback({ employees:employees });
 
   }
   if (operation.toLowerCase() === "getemployee"){ 
     const collection = db.collection(collectionNames[0]);
-    const employee = await collection.findOne({ pk: parseInt(parameters.id)});
+    const employee = await collection.findOne({employees:{ id: parseInt(parameters.id)}});
     callback({employee:employee});
 
   console.log( 'call complete: ' + operation );
