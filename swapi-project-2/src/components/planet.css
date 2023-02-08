@@ -1,40 +1,18 @@
-/* body,
-div,
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  margin: 0;
-  padding: 0;
-}
-*/
-
-:root {
-  font-family: Arial, Helvetica, sans-serif;
-  --dark1: black;
-  --light1: white;
-  --dark2: darkblue;
-  --light2: lightblue;
-  background-color: var(--light1);
-  color: var(--dark1);
-}
-
 .planets h2{
   margin-bottom: 20px
 }
 
 .planets h1{
-  margin: 50px;
+  /* margin: 50px; */
   /* display:table;
   vertical-align:middle; */
 }
 
 .residents {
   display:table;
-  vertical-align:middle;
+  /* vertical-align:middle; */
   margin: 50px;
+  color: #FFE81F;
   /* background-color: aqua; */
 }
 
@@ -51,8 +29,8 @@ p {
   display:table;
   vertical-align:middle;
   font-size: 1.1em;
-  background-color: lightblue;
-  /* color: "red"; */
+  background-color:  #FFE81F;
+  color: #000000;
   font-weight: bold;
   padding: 10px;
   margin: 10px;
@@ -67,20 +45,37 @@ p {
   display:table;
   vertical-align:middle;
   font-size: 1.1em;
-  background-color: lightblue;
-  /* color: "red"; */
   font-weight: bold;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
   border: 1px solid var(--dark2);
 }
+.planets{
+  min-height: 100vh;
+  height: 100%;
 
-.generalInfo {
+  margin: 0;
+  padding: 0;
+  background-repeat: repeat-x;
+  background-color: #000000;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+
+
+}
+
+/* .generalInfo {
   display: flex;
   justify-content: space-around;
   border: 20px;
 }
+
 
 .generalInfo p {
   padding: 20px;
@@ -91,4 +86,4 @@ p {
 .generalInfo span {
   font-weight: bold;
   font-size: 1.1em;
-}
+} */

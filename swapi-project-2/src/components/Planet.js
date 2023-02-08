@@ -5,7 +5,7 @@ import { createSearchParams, useNavigate, Link, useParams,useLoaderData} from 'r
 export default function Planet(){
 
   // const [planet, setPlanet] = useState({})
-  // const [people, setPeople] = useState([])
+  const [films, setFilms] = useState([])
   const [residents, setResidents] = useState([])
 
   const {id} = useParams();
@@ -13,6 +13,7 @@ export default function Planet(){
   const planet = useLoaderData();
   const [people, setPeople] = useState([])
   let temp = []
+  let temp2 =[]
   // const [planet, setPlanet] = useState({})
 
 
@@ -41,22 +42,25 @@ useEffect(() =>{
   
     })
     .then(() => setResidents(temp))
-    // .then(() => {
-    //   fetch(`http://localhost:4000/films/`)
-    // .then((res) => res.json())
-    // .then((people) => {console.log(people); return people})
-    // .then((res) => {
-    //   res.forEach((person) =>{
-    //     if (person.fields?.homeworld === planet.pk)
-    //       temp.push(person.pk)
+    .then(() => {
+      fetch(`http://localhost:4000/films/`)
+    .then((res) => res.json())
+    .then((films) => {console.log(films); return films})
+    .then((res) => {
+      res.forEach((film) =>{
+        film.fields?.planets.forEach((filmPlanet) => {
+          if (filmPlanet === planet.pk)
+            temp2.push(film.pk)
         
-    //   })
+        })
+
+      })
   
-    // })
-    // .then(() => setResidents(temp))
+    })
+    .then(() => setFilms(temp2))
       
       
-    // })
+    })
 
 }, [])
 
@@ -71,7 +75,7 @@ useEffect(() =>{
     <div className="planets">
     {/* {console.log(planet)} */}
       <h1>{planet.fields?.name}</h1>
-      <section className="generalInfo">
+      <section className="info">
         <p>Population: <span>{planet.fields?.population}</span></p>
         <p>Climate: <span>{planet.fields?.climate}</span></p>
         <p>Terrain: <span>{planet.fields?.terrain}</span></p>
@@ -88,20 +92,19 @@ useEffect(() =>{
           }
         </ul>
       </section>
-      {/* <section className="residents">
+      <section className="residents">
         <ul>
           <h2>Films</h2>
-          {planet?.films?.map((film, index) => {
+          {films?.map((film, index) => {
             return (
-            <li
-              // onClick = {() => navigateToFilm(getFilmIdFromUrl(film))}
-              key={index}>{getFilmIdFromUrl(film)}
-            </li>)
+              <Link className="residentLink" to={`/films/${film}`}
+              key={film}>{film}
+            </Link>)
           })
 
           }
         </ul>
-      </section> */}
+      </section>
 
     </div>
 

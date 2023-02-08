@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams,createSearchParams,useNavigate,useParams, useLoaderData,Link } from "react-router-dom";
 import { fetchAllPeople } from "../fetct";
-
+import './person.css'
 
 
 
@@ -11,7 +11,8 @@ export default function Person() {
   // // const [searchparams] = useSearchParams();
   const {id} = useParams();
   const person = useLoaderData();
-
+  let temp = []
+  const [films,setFilms] = useState([])
   // const getIdFromUrl = (entityName, url) => {
   //   const re = new RegExp(`.*${entityName}\/(\\d+).*`);
   //   const matches = url.match(re)
@@ -21,74 +22,54 @@ export default function Person() {
   // const getFilmIdFromUrl = url => getIdFromUrl("films", url)
   // const getPlanetIdFromUrl = url => getIdFromUrl("planets", url)
   // const getPersonIdFromUrl = url => getIdFromUrl("people", url)
+  useEffect(() =>{
+    fetch(`http://localhost:4000/films/`)
+    .then((res) => res.json())
+    .then((films) => {console.log(films); return films})
+    .then((res) => {
+      res.forEach((film) =>{
+        film.fields?.characters.forEach((filmCharacter) => {
+          if (filmCharacter === person.pk)
+            temp.push(film.pk)
+        
+        })
+
+      })
+  
+    })
+    .then(() => setFilms(temp))
+      
+    
+  },[])
   
     return (
-      <div>
+      <div className="personDiv">
         <h1>{person.fields.name}</h1>
-        <section className="generalInfo">
-        <p>Height: <span>{person.fields.height}</span></p>
-        <p>Mass: <span>{person.fields.mass}</span></p>
+        <div className="info">
+        <p>Height: <span>{person.fields.height}</span> cm</p>
+        <p>Mass: <span>{person.fields.mass}</span> kg</p>
         <p>Born: <span>{person.fields.birth_year}</span></p>
-      </section>
-      <section className="residents">
+      </div>
+      <div className="residents">
         <h2>Homeworld</h2>
           <Link className="residentLink" to={`/planets/${person.fields.homeworld}`}
             key={person.fields.homeworld}>{person.fields.homeworld}
           </Link>
 
-      </section>
-        <section className="residents">
+      </div>
+      <div className="residents">
         <ul>
-            <h2>Films</h2>
-            {person?.fields?.films?.map((film, index) => {
-              return (
-              <li
-                // onClick = {() => navigateToFilm(getFilmIdFromUrl(film))}
-                key={index}>{film}
-              </li>)
-            })
-
-            }
-          </ul>
-      </section>
-      
-      
-      
-      
-      
-      {/* <section className="residents">
-        <ul>
-          <h2>Residents</h2>
-          {planet?.residents?.map(resident => {
+          <h2>Films</h2>
+          {films?.map((film, index) => {
             return (
-            <Link className="residentLink" to={`/people/${getPersonIdFromUrl(resident)}`}
-              key={getPersonIdFromUrl(resident)}>{getPersonIdFromUrl(resident)}
+              <Link className="residentLink" to={`/films/${film}`}
+              key={film}>{film}
             </Link>)
           })
+
           }
         </ul>
-      </section> */}
-      
-      
-      
-      
-      
-      
-      {/* <section className="residents">
-        <ul>
-            <h2>Films</h2>
-            {person?.films?.map((film, index) => {
-              return (
-              <li
-                // onClick = {() => navigateToFilm(getFilmIdFromUrl(film))}
-                key={index}>{getFilmIdFromUrl(film)}
-              </li>)
-            })
-
-            }
-          </ul>
-      </section> */}
-      
+      </div>
       </div>
     
     )

@@ -9,16 +9,22 @@ export default function People() {
 const people = useLoaderData();
 
   return (
-    <div className="peopleList">
+    <div className="peopleDiv">
+      <div className="test">
+        <h1>Pick a Star Wars Character</h1>
       {people.map(person => ( 
-      <Link className="peopleInfo" to={person.pk.toString()} key={person.pk}>
-        <div>
-        {person.fields.name}
+        <div className="peopleList">
+        <Link className="peopleLink" to={person.pk.toString()} key={person.pk}>
+          <div className="peopleInfo">
+            {person.fields.name}
+          </div>
+        </Link>
+
         </div>
-      </Link>
       )
 
       )}
+      </div>
       </div>
   )
 

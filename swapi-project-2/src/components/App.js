@@ -7,7 +7,7 @@ import Home from './Home';
 import Person, { personLoader } from './person'
 import People, { peopleLoader } from './People'
 import { Routes, Route, createBrowserRouter, createRoutesFromElements, RouterProvider, BrowserRouter } from 'react-router-dom';
-
+import './App.css'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>

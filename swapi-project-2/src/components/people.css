@@ -1,8 +1,21 @@
-.peopleList {
+/* .peopleList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background-color: #FFE81F;
+  color: #000000;
   padding: 0;
+} */
+/* .peopleList { 
+  width: auto;
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid var(--dark2);
+  border-radius: 5px;
+  background-color: #FFE81F;
+  color: #000000;
+  font-weight: bold;
+  margin: 5px auto;
 }
 
 .peopleInfo {
@@ -11,8 +24,61 @@
   margin: 10px;
   border: 1px solid var(--dark2);
   border-radius: 5px;
-  color: var(--dark2);
-  background-color: var(--light2);
+  color: inherit;
+  background-color: inherit;
   font-weight: bold;
+} */
+.peopleList { 
+  width: auto;
+  text-decoration: none;
+  display: inline-block;
+
+  padding: 10px;
+  border: 1px solid var(--dark2);
+  border-radius: 5px;
+  background-color: #FFE81F;
+  font-weight: bold;
+  margin: 5px auto;
+}
+.peopleLink{
+  text-decoration: none;
+  color: #000000;
+
+}
+
+h1{
+  color:#FFE81F;
+  margin-bottom: 2%;
+
+
+  
+}
+
+.peopleInfo{
+  color: inherit;
+  text-decoration: inherit;
+}
+
+
+
+
+.peopleDiv{
+
+  margin: 0;
+  padding: 0;
+
+
+
+
+  background-color: #000000;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+
+
 }
 
