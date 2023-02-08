@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route, createBrowserRouter, createRoutesFromElements, RouterProvider, BrowserRouter } from 'react-router-dom';
 import EmployeeList from './employeeList';
 import Login from './Login';
-import EmployeeDetails from './employeeDetails';
+import EmployeeDetails, {employeeLoader} from './employeeDetails';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,9 +18,9 @@ const router = createBrowserRouter(
         // loader={peopleLoader}
       />
       <Route 
-        path = "employees/:id" 
+        path = "employees/:eid" 
         element={<EmployeeDetails/>}
-        // loader={personLoader}
+        loader={employeeLoader}
       />
     </Route>
   )
