@@ -18,7 +18,7 @@ const router = createBrowserRouter(
         // loader={peopleLoader}
       />
       <Route 
-        path = "employee/:id" 
+        path = "employees/:id" 
         element={<EmployeeDetails/>}
         // loader={personLoader}
       />
