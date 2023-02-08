@@ -14,6 +14,8 @@ export default function Planet(){
   const [people, setPeople] = useState([])
   const [film, setFilm] = useState([])
   let temp = []
+  let filmsArray = []
+  
   // const [planet, setPlanet] = useState({})
 
 
@@ -47,15 +49,19 @@ useEffect(() =>{
     .then((res) => res.json())
     .then((films) => {console.log(films); return films})
     .then((res) => {
-      res.forEach((film) =>{
-        film.fields?.planets.map(world);
-        if ( world === planet.pk)
-          temp.push(film.pk)
+      res.filter((film) =>{
+        return film.fields.planets[0] === 1;
+        // filmsArray.push(film.fields?.planets)
+
+        // console.log(planets)
         
-      })
-  
+        // filmsArray.push(film.pk)
+        // console.log(filmsArray)
+        // return film.fields?.planets;
+        // console.log("planets:", film.fields?.planets);
+      });console.log()
     })
-    .then(() => setFilm(temp))
+    .then(() => setFilm(filmsArray))
       
       
     })
@@ -90,20 +96,17 @@ useEffect(() =>{
           }
         </ul>
       </section>
-      {/* <section className="residents">
+      <section className="residents">
         <ul>
           <h2>Films</h2>
-          {planet?.films?.map((film, index) => {
+          {film?.map((film, index) => {
             return (
-            <li
-              // onClick = {() => navigateToFilm(getFilmIdFromUrl(film))}
-              key={index}>{getFilmIdFromUrl(film)}
-            </li>)
+            <Link className="residentLink" to={`/films/${film}`} key={film}>{film}</Link>)
           })
 
           }
         </ul>
-      </section> */}
+      </section>
 
     </div>
 
