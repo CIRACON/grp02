@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import "./employeeList.css";
+
 
 export default function EmployeeList() {
   const storedID = localStorage.getItem("employeeID")
@@ -52,8 +54,13 @@ export default function EmployeeList() {
         {searchInput.length > 0 &&
         <div>
         {searchResults.map(employee => (
-        <div key={employee._id}>
-         <Link to={`${employee._id}`}> {employee.name} </Link>
+        <div className="card" key={employee._id}>
+         <Link to={`${employee._id}`}> 
+         <div className="card-header">{employee.name} </div>
+         <div className="card-container">{employee.role}<br />
+         {employee.phone}<br />
+         </div>
+         </Link>
         </div>
       )
         )}
