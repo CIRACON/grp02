@@ -25,9 +25,10 @@ export default function Login() {
     e.preventDefault();
     if (idRef.current.value !== "") {
     employees.forEach(employee => {
-      if (idRef.current.value == employee._id) {
+      if (idRef.current.value === employee._id) {
         localStorage.setItem("employeeID",employee._id)
         localStorage.setItem("isHR",employee.isHR)
+        localStorage.setItem("name",employee.name)
       }
     })
     if (localStorage.getItem("employeeID") !== null) {

@@ -30,21 +30,17 @@ const router = createBrowserRouter(
 export default function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <header>
+        <div className='app-header-top-banner'>
+        <div className='app-container'></div>
+        </div>
+      </header>
       <RouterProvider router={router}/>
+      <footer className='app-footer'>
+        <div className='app-container'>
+
+        </div>
+      </footer>
     </div>
 
   );

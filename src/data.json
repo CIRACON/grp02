@@ -1,7 +1,8 @@
 [
   {
       "_id": "b81f8",
-      "mid":null,
+      "mid":"b92e9",
+      "reports":["2bi76","xo7mv"],
       "isHR": false,
       "name": "John",
       "role": "Senior React Developer",
@@ -79,6 +80,17 @@
       "salary": 80000,
       "location": "Berlin, Germany",
       "phone": "505-607-9210"
+    },
+    {
+      "_id": "b92e9",
+      "mid": null,
+      "reports":["b81f8","5s4ux"],
+      "isHR": false,
+      "name": "Rachel",
+      "role": "Sofware Enginneering Manager",
+      "salary": 150000,
+      "location": "London, UK",
+      "phone": "202-918-2200"
     }
 
   ]
