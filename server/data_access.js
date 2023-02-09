@@ -27,7 +27,7 @@ module.exports.call = async function call(operation, parameters, callback) {
   if (operation.toLowerCase() === "getemployee"){ 
     const collection = db.collection(collectionNames[0]);
     console.log(parameters)
-    const employee = await collection.findOne({_id: parseInt(parameters.id)});
+    const employee = await collection.findOne({_id: parameters.id});
     callback({employee:employee});
 
   console.log( 'call complete: ' + operation );

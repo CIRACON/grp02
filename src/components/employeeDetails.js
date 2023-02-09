@@ -5,32 +5,9 @@ import '../data.json'
 export default function EmployeeDetails() {
   const {id} = useParams()
   const employee = useLoaderData()
-
-  const storedId = 2
-  const isHR = false
-
-  // const [employee,setEmployee] = useState([])
-  // const employee = {
-  //   name: "John",
-  //   location:"Hartford",
-  //   salary: 80000,
-  //   phone: "1111111111",
-  //   role: "Software Engineer",
-  //   eid: "1",
-  //   mid: "2",
-  // }
-  
-
-  // function query (data) {
-  //   data = data.filter(data, item => item?.eid === id)
-  //   return data
-  // }
-
-  // useEffect(() => {
-  //   fetch("../data.json")
-  //   .then(res => {res.json()})
-  //   .then(data => setEmployee(data))
-  // },[])
+  const storedID = localStorage.getItem("employeeID")
+  const isHR = localStorage.getItem("isHR")
+  console.log(typeof isHR)
 
   return (
     <div>
@@ -44,8 +21,8 @@ export default function EmployeeDetails() {
           <li>Location: {employee.location}</li>
           <li>Phone Number: {employee.phone}</li>
           <li>Job Role: {employee.role}</li>
-          {(storedId === employee._id || storedId === employee.mid
-          || isHR === true)
+          {(storedID === employee._id || storedID === employee.mid
+          || isHR === "true")
           && <li>Salary: {employee.salary}</li>}
           
         </ul>

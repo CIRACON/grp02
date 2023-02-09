@@ -1,16 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css"
 
 
 
 
 export default function Login() {
-  let activeStyle = {
-    textDecoration: "underline",
-  };
+  const [employees,setEmployees] = useState([])
 
-  let activeClassName = "underline";
+  useEffect(() => {
+  fetch('http://localhost:4000/employees')
+    .then((res) => res.json())
+    .then((employees) => {console.log(employees); return employees})
+    .then((res) => setEmployees(res))
+    .catch(err => console.error(err))
+  }, [])
+
+  const usernameRef = useRef()
+  const idRef = useRef()
+  const navigate = useNavigate()
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (idRef.current.value !== "") {
+    employees.forEach(employee => {
+      if (idRef.current.value == employee._id) {
+        localStorage.setItem("employeeID",employee._id)
+        localStorage.setItem("isHR",employee.isHR)
+      }
+    })
+    if (localStorage.getItem("employeeID") !== null) {
+      navigate("employees")
+    }
+    else{
+      console.log("User not found, try again")
+      return;
+    }
+    
+  }
+  else{
+    console.log("No input, login failed")
+    return;
+  }
+}
 
   return (
     <div className="homeDiv">
@@ -18,17 +51,28 @@ export default function Login() {
         <div className="red">
           <h1>Employee Directory </h1>
         </div>
-        {/* <div className="red">
-          <h4>Begin your Star Wars journey to a long time ago in a galaxy far, far away... </h4>
-        </div> */}
-        <div className="green">
-          <nav>
-          <NavLink
-            className="homeNavLink"
-            to="employees"> Click to Start !
-          </NavLink>
-          </nav>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div>
+            {/* <input 
+              type="text" 
+              placeholder="Username"
+              ref={username}
+              
+            /> */}
+          </div>
+          <div>
+            <input 
+              type="password" 
+              placeholder="Employee ID"
+              // onChange={e=>setID(e.target.value)}
+              ref={idRef}
+            />
+          </div>
+          <button>Login</button>
+        </form>
+        
+        
+        
       </div>
     </div>
   )
