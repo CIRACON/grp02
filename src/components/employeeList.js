@@ -2,7 +2,9 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
 export default function EmployeeList() {
-
+  const storedID = localStorage.getItem("employeeID")
+  const isHR = localStorage.getItem("isHR")
+  const name = localStorage.getItem("name")
 
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -33,7 +35,13 @@ export default function EmployeeList() {
 
 
   return (
-    <div className="container">
+    <div>
+      <div className="welcome">
+        <img src="/logo2.png" alt="logo" className="logo1"></img>
+        <h5>Hi, {name}</h5>
+      </div>
+    <div className="eInfo">
+
       <h1>Employee Lookup</h1>
       <input
         type="text"
@@ -41,14 +49,21 @@ export default function EmployeeList() {
         value={searchInput}
         onChange={handleChange}
         />
-      {searchResults.map(employee => (
+        {searchInput.length > 0 &&
+        <div>
+        {searchResults.map(employee => (
         <div key={employee._id}>
          <Link to={`${employee._id}`}> {employee.name} </Link>
         </div>
       )
         )}
-    </div>
-  )
 
+        </div>
+        }
+    
+    </div>
+    </div>
+
+  )
 
 }
