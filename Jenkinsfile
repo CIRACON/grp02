@@ -22,7 +22,7 @@ node {
     }
      stage('Build DockerImage') {
 
-         sh '''echo "wasadmin" | sudo --stdin docker build -t hackathon/hackathon_tldp .'''
+         sh '''echo "WASADMIN" | sudo -S docker build -t hackathon/hackathon_tldp .'''
         
     }
     
