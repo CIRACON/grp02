@@ -79,12 +79,12 @@ export default function EmployeeDetails() {
   //        return user;
   //      });
   //  }).then(users => console.log(users)))
-    fetch(`http://localhost:4000/reports/${employee._id}`)
+    fetch(`http://localhost:4000/api/reports/${employee._id}`)
     .then((res) => res.json())
     // .then((reports) => {console.log(reports); return reports;})
     .then((reports) => setReports(reports))
     .then(() => {
-      fetch(`http://localhost:4000/employees/${employee.mid}`)
+      fetch(`http://localhost:4000/api/employees/${employee.mid}`)
       .then((res) => res.json())
       // .then((manager) => {console.log(manager); return manager;})
       .then((manager) => setManager(manager))
@@ -165,7 +165,7 @@ export default function EmployeeDetails() {
 
 export const employeeLoader = async ({params}) => {
   const {id} = params
-  const res = await fetch(`http://localhost:4000/employees/${id}`)
+  const res = await fetch(`http://localhost:4000/api/employees/${id}`)
   return res.json()
 
 }

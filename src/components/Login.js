@@ -9,7 +9,7 @@ export default function Login() {
   const [employees,setEmployees] = useState([])
 
   useEffect(() => {
-  fetch('http://localhost:4000/employees')
+  fetch('http://localhost:4000/api/employees')
     .then((res) => res.json())
     .then((employees) => {console.log(employees); return employees})
     .then((res) => setEmployees(res))

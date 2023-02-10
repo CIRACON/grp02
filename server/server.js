@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname,'build')))
 //     res.sendFile(path.join(__dirname,'build','index.html'))
 // });
 
-app.get("/employees", async (req, res) => {
+app.get("/api/employees", async (req, res) => {
     await dao.call('getAllEmployees', {}, (result) => {
         console.log(result)
         if (result.employees !== undefined) {
@@ -24,7 +24,7 @@ app.get("/employees", async (req, res) => {
     });
   });
 
-app.get("/employees/:id", async(req, res) => {
+app.get("/api/employees/:id", async(req, res) => {
     await dao.call('getEmployee', {id: req.params.id}, (result) => {
         if (result.employee !== undefined) {
             res.send(result.employee);
@@ -35,7 +35,7 @@ app.get("/employees/:id", async(req, res) => {
     });
 });
 
-app.get("/reports/:id", async(req, res) => {
+app.get("/api/reports/:id", async(req, res) => {
     await dao.call('getReports', {mid: req.params.id}, (result) => {
         if (result.reports !== undefined) {           
             res.send(result.reports);
