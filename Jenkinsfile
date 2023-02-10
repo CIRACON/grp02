@@ -15,15 +15,15 @@ node {
             npm install
         '''
     }
-    stage('Build'){
+    stage('Build'){S
        sh'''
             npm run build
         ''' 
     }
      stage('Build DockerImage') {
-        sh'''
-          docker.build("hackathon-app")
-        '''
+
+         sh ''' docker build -t hackathon/hackathon_tldp .'''
+        
     }
     
 }
