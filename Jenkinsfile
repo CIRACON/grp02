@@ -15,7 +15,7 @@ node {
             npm install
         '''
     }
-    stage('Build'){S
+    stage('Build'){
        sh'''
             npm run build
         ''' 
