@@ -6,9 +6,9 @@ const path = require('path')
 app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname,'build')))
-app.get('/',function(req,res){
-    res.sendFile(path.join(__dirname,'build','index.html'))
-});
+// app.get('/',function(req,res){
+//     res.sendFile(path.join(__dirname,'build','index.html'))
+// });
 
 app.get("/employees", async (req, res) => {
     await dao.call('getAllEmployees', {}, (result) => {
@@ -34,6 +34,18 @@ app.get("/employees/:id", async(req, res) => {
         }
     });
 });
+
+app.get("/reports/:id", async(req, res) => {
+    await dao.call('getReports', {mid: req.params.id}, (result) => {
+        if (result.reports !== undefined) {           
+            res.send(result.reports);
+        } else {
+            res.statusCode = 404;
+            res.end();
+        }
+    });
+});
+
 
 
 
