@@ -11,7 +11,7 @@ node {
     stage('Install Server Dependencies') {
         sh'''
             cd server
-            mkdir build
+            mkdir -p build
             npm install
         '''
     }

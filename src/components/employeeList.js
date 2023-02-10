@@ -47,7 +47,7 @@ export default function EmployeeList() {
         <img src="/logo2.png" alt="logo" className="logo1"></img>
         <h5 onClick={handleNav}>Hi, {name}</h5>
       </div>
-    <div className="eInfo">
+    <div className="infoE">
 
       <h1>Employee Lookup</h1>
       <input

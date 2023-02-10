@@ -22,10 +22,21 @@ h5{
 
 
 }
+.fullDetails{
+  margin: 0px;
+  padding: 0px;
+}
 
 .eInfo{
   margin: 30px;
   /* margin-bottom: 10px; */
+  background-color: #f6f6f6;
+  padding: 10px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+
 }
 .eInfo span{
   margin: 5px;

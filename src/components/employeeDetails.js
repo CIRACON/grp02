@@ -84,10 +84,14 @@ export default function EmployeeDetails() {
     // .then((reports) => {console.log(reports); return reports;})
     .then((reports) => setReports(reports))
     .then(() => {
+      if (employee.mid) {
       fetch(`http://localhost:4000/api/employees/${employee.mid}`)
       .then((res) => res.json())
       // .then((manager) => {console.log(manager); return manager;})
-      .then((manager) => setManager(manager))
+      .then((manager) => setManager(manager))}
+      else{
+        return;
+      }
 
     })
     
@@ -100,7 +104,7 @@ export default function EmployeeDetails() {
 
 
   return (
-    <div>
+    <div className="fullDetails">
       <div className="welcome">
         <img src="/logo2.png" alt="logo" className="logo1"></img>
         <h5 onClick={handleNav}>Hi, {name}</h5>
