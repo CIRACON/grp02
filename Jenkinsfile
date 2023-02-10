@@ -22,7 +22,7 @@ node {
     }
      stage('Build DockerImage') {
 
-         sh ''' docker build -t hackathon/hackathon_tldp .'''
+         sh '''sudo docker build -t hackathon/hackathon_tldp .'''
         
     }
     
