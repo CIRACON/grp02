@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import {Link,useNavigate} from "react-router-dom";
 import "./employeeList.css";
 
 
@@ -33,6 +33,11 @@ export default function EmployeeList() {
     );
     setSearchResults(results);
   }, [searchInput])
+  const navigate = useNavigate()
+  const handleNav = () => {
+    navigate(`/employees/${storedID}`)
+  
+  }
 
 
 
@@ -40,7 +45,7 @@ export default function EmployeeList() {
     <div>
       <div className="welcome">
         <img src="/logo2.png" alt="logo" className="logo1"></img>
-        <h5>Hi, {name}</h5>
+        <h5 onClick={handleNav}>Hi, {name}</h5>
       </div>
     <div className="eInfo">
 

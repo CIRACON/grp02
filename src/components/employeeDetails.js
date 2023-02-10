@@ -92,20 +92,18 @@ export default function EmployeeDetails() {
     })
     
   },[employee._id,employee.mid])
-  // const navigate = useNavigate()
-  // const handleNav = (idR) => {
-  //   navigate(`/employees/${idR}`)
-  //   setManager({})
-  //   setReports([])
+  const navigate = useNavigate()
+  const handleNav = () => {
+    navigate(`/employees/${storedID}`)
   
-  // }
+  }
 
 
   return (
     <div>
       <div className="welcome">
         <img src="/logo2.png" alt="logo" className="logo1"></img>
-        <h5>Hi, {name}</h5>
+        <h5 onClick={handleNav}>Hi, {name}</h5>
       </div>
       {console.log(manager)}
       <div  className="eInfo">
