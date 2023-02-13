@@ -52,6 +52,7 @@ export default function Login() {
         <div className="red">
           <h1>Employee Directory </h1>
         </div>
+        <div className="formDiv">
         <form onSubmit={handleSubmit}>
           <div>
             {/* <input 
@@ -61,16 +62,17 @@ export default function Login() {
               
             /> */}
           </div>
-          <div>
-            <input 
+          <div className="form-inputsL">
+            <input className="form-inputL" 
               type="password" 
               placeholder="Employee ID"
               // onChange={e=>setID(e.target.value)}
               ref={idRef}
             />
           </div>
-          <button>Login</button>
+          <button className="btn">Login</button>
         </form>
+        </div>
         
         
         

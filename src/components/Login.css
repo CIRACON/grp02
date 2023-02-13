@@ -1,8 +1,8 @@
 .homeDiv{
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
+  /* width: 100vw;
+  height;
   text-align: center;
+  background-color: aqua; */
 
   /* background-image:
   radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -11,6 +11,13 @@
   radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
   background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px; 
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; */
+  /* text-align: center; */
+  height: 85vh;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 
 
 }
@@ -18,17 +25,28 @@
 
 
 .container {
-  position: fixed; /* or absolute */
+  /* position: fixed; 
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 40%;
+  transform: translate(-50%, -50%); */
+
+  text-align: center;
+  width: 50%;
+  height: 50%;
+  padding-top: 40px;
+  background-color: #f6f6f6;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+
 
 }
 .red {
   margin: 5px auto;
   color: black;
 }
-.green { 
+/* .green { 
   width: auto;
   display: inline-block;
   
@@ -39,9 +57,46 @@
   color: #000000;
   font-weight: bold;
   margin: 5px auto;
-}
+} */
 
 .homeNavLink{
   color: inherit;
   text-decoration: inherit;
+}
+
+.form-inputsL {
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  border-width: 5px;
+}
+
+.form-inputL {
+  padding-left: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.btn{
+  display: inline-block;
+  background-color: #A31F34;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px; /* add this line */
+  font-size: 18px; /* add this line */
+  
+
+}
+.formDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
