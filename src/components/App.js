@@ -32,13 +32,18 @@ export default function App() {
     <div className="App">
       <header>
         <div className='app-header-top-banner'>
-        <div className='app-container'></div>
+          <div className='app-container'>
+        </div>
         </div>
       </header>
+      <main className='mainContent'>
       <RouterProvider router={router}/>
+      </main>
       <footer className='app-footer'>
         <div className='app-container'>
+        &copy; <em>{(new Date().getFullYear())}</em> Cardinals
 
+        
         </div>
       </footer>
     </div>

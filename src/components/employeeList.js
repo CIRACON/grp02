@@ -12,6 +12,8 @@ export default function EmployeeList() {
   const [searchResults, setSearchResults] = useState([]);
   const [employeeList,setEmployeeList] = useState([]);
   const handleChange = event => {
+    setSearchResults([]);
+
     setSearchInput(event.target.value);
   };
 
@@ -48,16 +50,57 @@ export default function EmployeeList() {
         <h5 onClick={handleNav}>Hi, {name}</h5>
       </div>
     <div className="infoE">
-
       <h1>Employee Lookup</h1>
-      <input
+      <div className="form-inputs">
+      <input className="form-input"
         type="text"
         placeholder="Name Search"
         value={searchInput}
         onChange={handleChange}
+        
+        // onBlur={() => {
+        //   setSearchResults([])
+        //   setSearchInput("")
+        // }}
         />
+
+      </div>
+        {
+
+        }
+        <div className="topperDiv">
+
+        {searchResults && searchInput != 0 && <div className="topper"> {searchResults.length} Found </div>}
+        </div>
+
         {searchInput.length > 0 &&
-        <div>
+        <div className="cardDiv">
+
+        {searchResults.map((employee,index) => (
+        <div className="card" key={employee._id}>
+         <Link to={`${employee._id}`}>
+          {index == 0 && <div className="card-header1">{employee.name} </div>} 
+          {index > 0 && <div className="card-header">{employee.name} </div>} 
+         <div className="card-container">{employee.role}<br />
+         {employee.location}<br />
+         {employee.phone}
+         </div>
+         </Link>
+        </div>
+      )
+        )}
+          {searchResults.length == 0 &&
+        <div className="nothing">
+          <h2>No Results.</h2>
+        </div>
+        
+        }
+
+        </div>
+        }
+
+          {/* {searchInput.length >= 0 &&
+        <div className="cardDiv">
         {searchResults.map(employee => (
         <div className="card" key={employee._id}>
          <Link to={`${employee._id}`}> 
@@ -71,7 +114,7 @@ export default function EmployeeList() {
         )}
 
         </div>
-        }
+        } */}
     
     </div>
     </div>

@@ -13,9 +13,15 @@ export default function EmployeeDetails() {
   console.log(typeof isHR)
   let temp2 = []
   const [manager,setManager] = useState({})
-   
+  const [salary,setSalary] = useState(-1)
+ 
 
   useEffect(() => {
+    const temp =  (employee.salary).toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD'
+    });
+    setSalary(temp)
 
     // fetch(`http://localhost:4000/employees/${employee._id}`)
     // .then((res) => res.json())
@@ -101,6 +107,8 @@ export default function EmployeeDetails() {
     navigate(`/employees/${storedID}`)
   
   }
+//   const [salary,setSalary] = useState(-1)
+
 
 
   return (
@@ -110,56 +118,56 @@ export default function EmployeeDetails() {
         <h5 onClick={handleNav}>Hi, {name}</h5>
       </div>
       {console.log(manager)}
-      <div  className="eInfo">
-      <div><h1>{employee.name}</h1></div>
-      <div>
-        <div>
-          <p><span><FaBlackTie/></span><span>{employee.role}</span></p>
-        </div>
-        <div>
-          <p><span><FaPhoneAlt/></span><span>{employee.phone}</span></p>
-        </div>
-        <div>
-          <p><span><FaMapMarkerAlt/></span><span>{employee.location}</span></p>
-        </div>
-          {(storedID === employee._id || storedID === employee.mid
-          || isHR === "true")
-          && <div>
-            <p><span><FaMoneyBillWave/></span><span>${employee.salary}</span></p>
-          </div>}
-      </div>
-      {employee.mid &&
-      <div>
-        <h4>Reports to</h4>
-        <div>
-          <Link to={`/employees/${employee.mid}`}>{manager.name}</Link>
-        </div>
-        </div>
-      }
-      {/* {employee.reports &&
-      <div>
-        <h4>Direct Reports</h4>
-        {employee.reports.map((report) =>{
-          return(
-            <div>
-            <Link to={`/employees/${report}`}>{report}</Link>
+      <div className="eInfoFull">
+        <div className="card-headerD"><h1>{employee.name}</h1></div>
+      <div className="eInfo">
+        <div className="row">
+          <div className="column">
+            <div className="c1">
+              <div>
+                <p><span><FaBlackTie/></span><span>{employee.role}</span></p>
+              </div>
+              <div>
+                <p><span><FaPhoneAlt/></span><span>{employee.phone}</span></p>
+              </div>
+              <div>
+                <p><span><FaMapMarkerAlt/></span><span>{employee.location}</span></p>
+              </div>
+              
+                {(storedID === employee._id || storedID === employee.mid
+                || isHR === "true")
+                && <div>
+                  <p><span><FaMoneyBillWave/></span><span>{salary}</span></p>
+                </div>}
             </div>
-          )
-        })}
-      </div>
-      } */}
-      { reports.length > 0 &&
-      <div>
-        <h4>Direct Reports</h4>
-        {reports?.map((report) =>{
-          return(
+          </div>
+          <div className="column">
+            <div className="c2">
+            {employee.mid &&
             <div>
-              {/* <p>{report.name}</p> */}
-            <Link to={`/employees/${report._id}`}>{report.name}</Link>
+              <h4>Reports to</h4>
+              <div>
+                <Link to={`/employees/${employee.mid}`}>{manager.name}</Link>
+              </div>
+              </div>
+            }
+            {reports.length > 0 &&
+            <div>
+              <h4>Direct Reports</h4>
+              {reports?.map((report) =>{
+                return(
+                  <div>
+                    {/* <p>{report.name}</p> */}
+                  <Link to={`/employees/${report._id}`}>{report.name}</Link>
+                  </div>
+                )
+              })}
             </div>
-          )
-        })}
-      </div>}
+            }
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   )
