@@ -41,6 +41,14 @@ export default function EmployeeList() {
   
   }
 
+  const handleLogOut = () => {
+    navigate(`/`)
+    localStorage.clear()
+  
+  }
+  
+
+
 
 
   return (
@@ -48,6 +56,7 @@ export default function EmployeeList() {
       <div className="welcome">
         <img src="/logo2.png" alt="logo" className="logo1"></img>
         <h5 onClick={handleNav}>Hi, {name}</h5>
+        <button onClick={handleLogOut} className="btn">Logout</button>
       </div>
     <div className="infoE">
       <h1>Employee Lookup</h1>

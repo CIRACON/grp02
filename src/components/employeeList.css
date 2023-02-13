@@ -180,3 +180,19 @@ h5{
   align-items: center;
   
 }
+
+.welcome button{
+  display: inline-block;
+  background-color: #A31F34;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px; /* add this line */
+  font-size: 18px; /* add this line */
+  margin-left: auto;
+  margin-right: 10px
+  
+
+}

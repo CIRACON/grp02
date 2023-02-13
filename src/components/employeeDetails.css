@@ -105,3 +105,14 @@ h5{
   border-radius: 15px;
 
 }
+
+.btnDiv{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.btnDiv button{
+  width: 20%;
+
+}

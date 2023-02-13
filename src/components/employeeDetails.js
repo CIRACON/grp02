@@ -108,7 +108,15 @@ export default function EmployeeDetails() {
   
   }
 //   const [salary,setSalary] = useState(-1)
+  const handleLogOut = () => {
+    navigate(`/`)
+    localStorage.clear()
 
+  }
+  const handlBacktoSearch = () => {
+    navigate(`/employees`)
+  
+  }
 
 
   return (
@@ -116,6 +124,8 @@ export default function EmployeeDetails() {
       <div className="welcome">
         <img src="/logo2.png" alt="logo" className="logo1"></img>
         <h5 onClick={handleNav}>Hi, {name}</h5>
+        <button onClick={handleLogOut} className="btn">Logout</button>
+
       </div>
       {console.log(manager)}
       <div className="eInfoFull">
@@ -168,6 +178,9 @@ export default function EmployeeDetails() {
           </div>
         </div>
       </div>
+      </div>
+      <div className="btnDiv">
+      <button onClick={handlBacktoSearch} className="btn">Restart Search</button>
       </div>
     </div>
   )
